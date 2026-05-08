@@ -270,24 +270,41 @@
       }
     }
 
-    hr {
-      border: 0;
-      border-top: 1px solid #dce3ec;
-      margin: 1.5rem 0 1rem;
+  hr {
+    border: 0;
+    border-top: 1px solid #dce3ec;
+    margin: 1.5rem 0 1rem;
     }
-    a {
-      font-size: 2rem;
-      font-weight: 400;
-      color: #0b3551;
-      letter-spacing: -0.3px;
-      text-decoration: none;}
+  .button-16 {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: #3c4043;
+    cursor: pointer;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    height: 36px;
+    line-height: 27px;
+    min-width: 54px;
+    padding: 0 16px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: pre;
+  }
 
-    .myDivForA {
-      border: 6px outset rgb(55, 55, 55);
-      background-color: rgb(255, 255, 255);
-      text-align: center;
-      border-radius: 16%;
-}
+  .button-16:hover {
+    border-color: #dadce0;
+    box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+    color: #202124;
+  }
+
+  .button-16:focus {
+    border-color: #4285f4;
+    outline: none;
+  }
+    
   </style>
 </head>
 <body>
@@ -459,9 +476,9 @@
     </div>
 
   </div>
+
 </br></br>
-  <div class="myDivForA">
-  <a href="app.html">Modelo de app</a> 
-  </div>
+
+  <button class="button-16" role="button" href="app.html">App model</button>
 </body>
 </html>

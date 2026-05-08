@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard 360 | Plataforma de Gestão SST</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .smartphone {
+            width: 390px;
+            height: 750px;
+            background: #ffffff;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 6px #1a1a1a, 0 0 0 8px #2d2d2d;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .status-bar {
+            background: #f8fafc;
+            padding: 12px 20px 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: #1e293b;
+            border-bottom: 1px solid #e8edf3;
+            z-index: 10;
+        }
+
+        .notch {
+            width: 100px;
+            height: 24px;
+            background: #1e293b;
+            border-radius: 0 0 16px 16px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #0b2b44, #153e5a);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            z-index: 5;
+        }
+
+        .app-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .shield-icon {
+            width: 32px;
+            height: 32px;
+            background: #38bdf8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .app-title {
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            background: #1e4b6e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        .app-content {
+            flex: 1;
+            overflow-y: auto;
+            background: #f4f7fb;
+            padding: 16px;
+            position: relative;
+        }
+
+        .app-content::-webkit-scrollbar {
+            width: 0;
+        }
+
+        /* Tela padrão e telas secundárias */
+        .screen {
+            display: none;
+            animation: fadeSlide 0.3s ease;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e8edf3;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .card:active {
+            transform: scale(0.97);
+            background: #f8fafc;
+        }
+
+        .card-label {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .card-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0b2b44;
+            margin: 4px 0;
+        }
+
+        .card-status {
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .status-ok {
+            color: #16a34a;
+        }
+        .status-warn {
+            color: #d97706;
+        }
+        .status-alert {
+            color: #dc2626;
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e3b54;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .alert-item {
+            background: white;
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid #d97706;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .alert-item:active {
+            background: #fefce8;
+            transform: scale(0.98);
+        }
+
+        .alert-item.critical {
+            border-left-color: #dc2626;
+        }
+
+        .alert-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .alert-item.critical .alert-icon {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .alert-text {
+            flex: 1;
+        }
+
+        .alert-title {
+            font-weight: 600;
+            font-size: 13px;
+            color: #1e293b;
+        }
+
+        .alert-desc {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        /* Bottom nav */
+        .bottom-nav {
+            background: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e8edf3;
+            z-index: 10;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: 0.2s;
+            padding: 6px 12px;
+            border-radius: 10px;
+            border: none;
+            background: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-item.active {
+            color: #0b2b44;
+            font-weight: 600;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+        }
+
+        /* Modal / Balão de detalhes */
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 50;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            width: 85%;
+            max-height: 70%;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-card h3 {
+            font-size: 18px;
+            color: #0b2b44;
+            margin-bottom: 12px;
+        }
+
+        .modal-card p {
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .modal-close {
+            background: #0b2b44;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            margin-top: 12px;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal-close:active {
+            background: #153e5a;
+        }
+
+        /* Tela de inspeção */
+        .inspection-photo {
+            width: 100%;
+            height: 120px;
+            background: #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 12px 0;
+            cursor: pointer;
+            border: 2px dashed #94a3b8;
+            transition: 0.2s;
+        }
+
+        .inspection-photo:active {
+            background: #cbd5e1;
+        }
+
+        .btn-primary {
+            background: #0b2b44;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .btn-primary:active {
+            background: #153e5a;
+        }
+
+        /* QR Code Scanner simulado */
+        .qr-scanner {
+            width: 180px;
+            height: 180px;
+            background: #000;
+            margin: 20px auto;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            border: 3px solid #38bdf8;
+        }
+
+        .qr-scanner-inner {
+            color: white;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+            margin-right: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <a link href="index.html">Modelo em Powerpoint</a>
+
+    <div class="smartphone">
+        <div class="notch"></div>
+
+        <div class="status-bar">
+            <span id="timeDisplay">9:41</span>
+            <div class="status-icons">
+                <span>📶</span>
+                <span>📶</span>
+                <span>🔋 85%</span>
+            </div>
+        </div>
+
+        <div class="app-header" id="appHeader">
+            <div class="app-logo">
+                <button class="back-button" id="backButton" style="display:none;">←</button>
+                <div class="shield-icon">🛡️</div>
+                <span class="app-title" id="headerTitle">SafeGuard 360</span>
+            </div>
+            <div class="user-avatar">👤</div>
+        </div>
+
+        <div class="app-content" id="appContent">
+            <!-- Tela Inicial -->
+            <div class="screen active" id="screenHome">
+                <div class="summary-cards">
+                    <div class="card" onclick="openModal('epiModal')">
+                        <div class="card-label">📦 EPIs Ativos</div>
+                        <div class="card-value">247</div>
+                        <div class="card-status status-ok">● Todos conformes</div>
+                    </div>
+                    <div class="card" onclick="openModal('trainingModal')">
+                        <div class="card-label">📋 Treinamentos</div>
+                        <div class="card-value">18</div>
+                        <div class="card-status status-warn">● 3 a vencer</div>
+                    </div>
+                    <div class="card" onclick="openModal('inspectionModal')">
+                        <div class="card-label">🔍 Inspeções</div>
+                        <div class="card-value">12</div>
+                        <div class="card-status status-ok">● Realizadas hoje</div>
+                    </div>
+                    <div class="card" onclick="openModal('ncModal')">
+                        <div class="card-label">⚠️ Não Conf.</div>
+                        <div class="card-value">5</div>
+                        <div class="card-status status-alert">● 2 críticas</div>
+                    </div>
+                </div>
+
+                <div class="section-title">🔔 Alertas recentes</div>
+
+                <div class="alert-item critical" onclick="openModal('alertNr12')">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-text">
+                        <div class="alert-title">NR-12 vencida</div>
+                        <div class="alert-desc">João Silva · Máquinas · Venceu ontem</div>
+                    </div>
+                    <span style="color:#94a3b8;">›</span>
+                </div>
+
+                <div class="alert-item" onclick="openModal('alertNr35')">
+                    <div class="alert-icon">📅</div>
+                    <div class="alert-text">
+                        <div class="alert-title">Reciclagem NR-35</div>
+                        <div class="alert-desc">Maria Costa · 15 dias restantes</div>
+                    </div>
+                    <span style="color:#94a3b8;">›</span>
+                </div>
+
+                <div class="alert-item" onclick="openModal('alertStock')">
+                    <div class="alert-icon">🧤</div>
+                    <div class="alert-text">
+                        <div class="alert-title">Estoque baixo de luvas</div>
+                        <div class="alert-desc">Setor B · Apenas 12 unidades</div>
+                    </div>
+                    <span style="color:#94a3b8;">›</span>
+                </div>
+
+                <div class="alert-item critical" onclick="openModal('alertPrensa')">
+                    <div class="alert-icon">🔴</div>
+                    <div class="alert-text">
+                        <div class="alert-title">Proteção de prensa ausente</div>
+                        <div class="alert-desc">Setor C · Inspeção 08/05 · Crítico</div>
+                    </div>
+                    <span style="color:#94a3b8;">›</span>
+                </div>
+            </div>
+
+            <!-- Tela de Inspeção -->
+            <div class="screen" id="screenInspection">
+                <h3 style="color:#1e3b54; margin-bottom:12px;">🔍 Nova Inspeção</h3>
+                <p style="font-size:13px; color:#64748b;">Setor C · Prensa Hidráulica</p>
+                <div class="inspection-photo" id="photoCapture" onclick="capturePhoto()">
+                    📷
+                </div>
+                <p style="font-size:11px; color:#94a3b8; text-align:center;">Toque para simular foto</p>
+                <div style="margin-top:12px;">
+                    <label style="font-size:12px; font-weight:600;">Observação:</label>
+                    <textarea style="width:100%; border-radius:8px; border:1px solid #d1d5db; padding:8px; font-family:'Inter',sans-serif; resize:none; margin-top:4px;" rows="2" placeholder="Descreva a não conformidade...">Proteção da prensa ausente. Risco grave.</textarea>
+                </div>
+                <button class="btn-primary" style="margin-top:16px;" onclick="submitInspection()">Registrar Inspeção</button>
+                <p id="inspectionConfirmation" style="color:#16a34a; font-size:12px; text-align:center; margin-top:8px; display:none;">✅ Inspeção registrada com sucesso!</p>
+            </div>
+
+            <!-- Tela de EPI / QR Code -->
+            <div class="screen" id="screenEPI">
+                <h3 style="color:#1e3b54; text-align:center;">📦 Entrega de EPI</h3>
+                <p style="text-align:center; font-size:13px; color:#64748b;">Escaneie o QR Code do colaborador</p>
+                <div class="qr-scanner" onclick="simulateQR()">
+                    <div class="qr-scanner-inner" id="qrDisplay">
+                        <span style="font-size:28px;">📱</span><br>
+                        Toque para<br>simular leitura
+                    </div>
+                </div>
+                <p id="qrResult" style="text-align:center; color:#16a34a; font-weight:600; margin-top:8px; display:none;">✅ João Silva · Capacete entregue em 08/05/2026</p>
+                <button class="btn-primary" id="signButton" style="display:none;" onclick="signEPI()">Assinar digitalmente</button>
+                <p id="signConfirmation" style="color:#16a34a; font-size:12px; text-align:center; margin-top:8px; display:none;">✅ Assinatura registrada. EPI liberado.</p>
+            </div>
+        </div>
+
+        <!-- Modal genérico -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-card" id="modalContent"></div>
+        </div>
+
+        <!-- Menu inferior -->
+        <div class="bottom-nav">
+            <button class="nav-item active" data-screen="home" onclick="navigateTo('home')">
+                <span class="nav-icon">🏠</span>
+                <span>Início</span>
+            </button>
+            <button class="nav-item" data-screen="inspection" onclick="navigateTo('inspection')">
+                <span class="nav-icon">🔍</span>
+                <span>Inspeções</span>
+            </button>
+            <button class="nav-item" data-screen="epi" onclick="navigateTo('epi')">
+                <span class="nav-icon">📦</span>
+                <span>EPIs</span>
+            </button>
+            <button class="nav-item" data-screen="home" onclick="navigateTo('home')">
+                <span class="nav-icon">👥</span>
+                <span>Equipe</span>
+            </button>
+            <button class="nav-item" data-screen="home" onclick="navigateTo('home')">
+                <span class="nav-icon">📊</span>
+                <span>Relatórios</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Atualiza horário
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('timeDisplay').textContent =
+                now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2,
+                '0');
+        }
+        updateTime();
+        setInterval(updateTime, 30000);
+
+        // Navegação entre telas
+        const screens = {
+            home: document.getElementById('screenHome'),
+            inspection: document.getElementById('screenInspection'),
+            epi: document.getElementById('screenEPI')
+        };
+
+        function navigateTo(screenName) {
+            // Esconde todas as telas
+            Object.values(screens).forEach(s => s.classList.remove('active'));
+            // Mostra a tela selecionada
+            if (screens[screenName]) {
+                screens[screenName].classList.add('active');
+            } else {
+                screens.home.classList.add('active');
+                screenName = 'home';
+            }
+
+            // Atualiza botão voltar
+            const backBtn = document.getElementById('backButton');
+            const headerTitle = document.getElementById('headerTitle');
+            if (screenName === 'home') {
+                backBtn.style.display = 'none';
+                headerTitle.textContent = 'SafeGuard 360';
+            } else {
+                backBtn.style.display = 'inline-block';
+                if (screenName === 'inspection') headerTitle.textContent = 'Inspeção';
+                if (screenName === 'epi') headerTitle.textContent = 'Controle de EPIs';
+            }
+
+            // Atualiza menu ativo
+            document.querySelectorAll('.nav-item').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.screen === screenName) btn.classList.add('active');
+            });
+        }
+
+        // Botão voltar do header
+        document.getElementById('backButton').addEventListener('click', () => navigateTo('home'));
+
+        // Modal de detalhes
+        const modalData = {
+            epiModal: {
+                title: '📦 EPIs Ativos',
+                content: '<p><strong>247 equipamentos</strong> em circulação.</p><p>✅ Todos com validade em dia.</p><p>Última entrega: 08/05/2026 às 14:30.</p><p>Setores atendidos: A, B, C, D.</p>'
+            },
+            trainingModal: {
+                title: '📋 Treinamentos',
+                content: '<p><strong>18 treinamentos</strong> ativos no período.</p><p>⚠️ <strong>3 a vencer</strong> nos próximos 30 dias:</p><p>• NR-35 - Maria Costa (15 dias)</p><p>• NR-12 - João Silva (venceu)</p><p>• NR-20 - Carlos Souza (22 dias)</p>'
+            },
+            inspectionModal: {
+                title: '🔍 Inspeções',
+                content: '<p><strong>12 inspeções</strong> realizadas hoje.</p><p>✅ Setores A, B dentro da conformidade.</p><p>⚠️ Setor C com 2 não conformidades abertas.</p><p>Próxima inspeção programada: Setor D às 16:00.</p>'
+            },
+            ncModal: {
+                title: '⚠️ Não Conformidades',
+                content: '<p><strong>5 não conformidades</strong> abertas.</p><p>🔴 <strong>2 críticas:</strong></p><p>• Proteção de prensa ausente - Setor C</p><p>• NR-12 vencida - João Silva</p><p>🟡 3 médias em andamento.</p>'
+            },
+            alertNr12: {
+                title: '⚠️ Alerta Crítico: NR-12',
+                content: '<p><strong>Colaborador:</strong> João Silva</p><p><strong>Setor:</strong> Máquinas</p><p><strong>Treinamento:</strong> NR-12 - Segurança em Máquinas</p><p><strong>Vencimento:</strong> 07/05/2026 (ontem)</p><p style="color:#dc2626; font-weight:600;">🚨 Ação necessária: Bloquear operação até reciclagem.</p>'
+            },
+            alertNr35: {
+                title: '📅 Alerta: NR-35',
+                content: '<p><strong>Colaboradora:</strong> Maria Costa</p><p><strong>Treinamento:</strong> NR-35 - Trabalho em Altura</p><p><strong>Vencimento em:</strong> 15 dias</p><p style="color:#d97706;">⚠️ Agendar reciclagem com urgência.</p>'
+            },
+            alertStock: {
+                title: '🧤 Estoque Baixo',
+                content: '<p><strong>EPI:</strong> Luvas de segurança</p><p><strong>Setor:</strong> B</p><p><strong>Quantidade atual:</strong> 12 unidades</p><p><strong>Estoque mínimo:</strong> 20 unidades</p><p style="color:#d97706;">⚠️ Solicitar compra imediata.</p>'
+            },
+            alertPrensa: {
+                title: '🔴 Proteção de Prensa Ausente',
+                content: '<p><strong>Setor:</strong> C</p><p><strong>Equipamento:</strong> Prensa Hidráulica P-03</p><p><strong>Inspeção:</strong> 08/05/2026</p><p><strong>Gravidade:</strong> Crítica</p><p style="color:#dc2626; font-weight:600;">🚨 Risco grave de acidente. Interdição recomendada até correção.</p>'
+            }
+        };
+
+        function openModal(modalId) {
+            const overlay = document.getElementById('modalOverlay');
+            const content = document.getElementById('modalContent');
+            const data = modalData[modalId];
+
+            if (data) {
+                content.innerHTML = `
+                    <h3>${data.title}</h3>
+                    ${data.content}
+                    <button class="modal-close" onclick="closeModal()">Fechar</button>
+                `;
+                overlay.classList.add('show');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('show');
+        }
+
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Simular captura de foto na inspeção
+        function capturePhoto() {
+            const photoDiv = document.getElementById('photoCapture');
+            photoDiv.innerHTML = '📸 Foto capturada!<br><span style="font-size:12px;">Proteção ausente registrada</span>';
+            photoDiv.style.background = '#fef2f2';
+            photoDiv.style.border = '2px solid #dc2626';
+        }
+
+        // Submeter inspeção
+        function submitInspection() {
+            const confirmation = document.getElementById('inspectionConfirmation');
+            confirmation.style.display = 'block';
+            setTimeout(() => {
+                confirmation.style.display = 'none';
+                document.getElementById('photoCapture').innerHTML = '📷';
+                document.getElementById('photoCapture').style.background = '#e2e8f0';
+                document.getElementById('photoCapture').style.border = '2px dashed #94a3b8';
+            }, 2000);
+        }
+
+        // Simular leitura de QR Code
+        function simulateQR() {
+            const qrDisplay = document.getElementById('qrDisplay');
+            const qrResult = document.getElementById('qrResult');
+            const signBtn = document.getElementById('signButton');
+
+            qrDisplay.innerHTML = '<span style="color:#38bdf8; font-size:20px;">✅</span><br>Lido!';
+            qrResult.style.display = 'block';
+            signBtn.style.display = 'block';
+
+            setTimeout(() => {
+                qrDisplay.innerHTML = '<span style="font-size:28px;">📱</span><br>Toque para<br>simular leitura';
+            }, 3000);
+        }
+
+        // Assinar digitalmente
+        function signEPI() {
+            const signConfirmation = document.getElementById('signConfirmation');
+            const signBtn = document.getElementById('signButton');
+            signConfirmation.style.display = 'block';
+            signBtn.style.display = 'none';
+            setTimeout(() => {
+                signConfirmation.style.display = 'none';
+                document.getElementById('qrResult').style.display = 'none';
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

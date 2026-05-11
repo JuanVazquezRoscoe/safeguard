@@ -1,280 +1,264 @@
+Entendi! Você quer que os slides fiquem com aparência de **interfaces de sistemas reais** (como dashboards, aplicativos web, telas de plataforma), sem uso de emojis, com um visual mais limpo, profissional e corporativo — como se fossem capturas de tela de uma plataforma SaaS moderna.
+
+Aqui está o HTML revisado dos **slides executivos**, agora com visual de interface de sistema (inspirado em dashboards como SafeGuard, Asana, Notion, etc.), sem emojis e com foco total em profissionalismo.
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>SafeGuard Solutions | Apresentação Executiva</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SafeGuard Solutions | Apresentação Executiva</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f4f7fc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1.5rem;
-      min-height: 100vh;
-      color: #1e293b;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+            min-height: 100vh;
+            color: #1a1f2e;
+        }
 
-    /* Container principal dos slides */
-    .presentation {
-      max-width: 1100px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 2.2rem;
-    }
+        .presentation {
+            max-width: 1050px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
 
-    /* Cada slide com aparência de documento executivo */
-    .slide {
-      background: #ffffff;
-      border: 1px solid #e9eef3;
-      border-radius: 2rem;
-      padding: 2.8rem 3rem;
-      box-shadow: 0 20px 35px -10px rgba(0, 20, 40, 0.08), 0 5px 15px rgba(0,0,0,0.02);
-      transition: all 0.25s ease;
-      position: relative;
-      background: linear-gradient(to bottom right, #ffffff, #fafcff);
-    }
+        /* Estilo de slide como interface de sistema */
+        .slide {
+            background: #ffffff;
+            border: 1px solid #e2e6ed;
+            border-radius: 18px;
+            padding: 2.8rem 2.8rem;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+            position: relative;
+            transition: all 0.2s ease;
+        }
 
-    .slide:hover {
-      box-shadow: 0 30px 45px -12px rgba(15, 60, 120, 0.12);
-      border-color: #cdddec;
-    }
+        .slide:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+            border-color: #cdd4df;
+        }
 
-    /* Linha superior decorativa suave */
-    .slide::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 2rem;
-      right: 2rem;
-      height: 2px;
-      background: linear-gradient(90deg, #1e4a6b, #4f7b9e, #1e4a6b);
-      border-radius: 0 0 4px 4px;
-    }
+        /* Barra lateral sutil no topo para lembrar interface */
+        .slide::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3b5a, #2f5f8a, #1e3b5a);
+            border-radius: 18px 18px 0 0;
+        }
 
-    /* Tipografia executiva */
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      font-weight: 600;
-      letter-spacing: -0.8px;
-      color: #0b2b44;
-      line-height: 1.2;
-    }
+        /* Tipografia limpa */
+        h1 {
+            font-size: 2.9rem;
+            font-weight: 600;
+            letter-spacing: -0.7px;
+            color: #0f263b;
+            line-height: 1.2;
+        }
 
-    h2 {
-      font-size: 1.9rem;
-      font-weight: 500;
-      color: #1e3b54;
-      margin-bottom: 1.8rem;
-      letter-spacing: -0.3px;
-      border-bottom: 1px solid #dce5f0;
-      padding-bottom: 0.7rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #1e364f;
+            margin-bottom: 1.8rem;
+            letter-spacing: -0.2px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
 
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #1e405b;
-      margin: 1.2rem 0 0.6rem;
-      letter-spacing: -0.2px;
-    }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1b3852;
+            margin: 1rem 0 0.6rem;
+            letter-spacing: -0.1px;
+        }
 
-    .slogan {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-style: italic;
-      color: #456b84;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-      letter-spacing: 0.2px;
-    }
+        .slogan {
+            font-size: 1.3rem;
+            color: #3f5c7a;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 0.2px;
+        }
 
-    .grid-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.2rem;
-      margin-top: 0.8rem;
-    }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
 
-    /* Cartão interno suave */
-    .card-inner {
-      background: #f8fafd;
-      border-radius: 1.5rem;
-      padding: 1.6rem 1.8rem;
-      border: 1px solid #e2eaf2;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      transition: background 0.2s;
-    }
+        /* Cartão interno estilo painel de sistema */
+        .card-panel {
+            background: #f7f9fc;
+            border-radius: 14px;
+            padding: 1.5rem 1.6rem;
+            border: 1px solid #e6ebf3;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
 
-    .card-inner:hover {
-      background: #f1f6fc;
-    }
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #253544;
+        }
 
-    .list-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      margin-bottom: 0.9rem;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #2c3e50;
-    }
+        .list-marker {
+            color: #1e4b6e;
+            font-weight: 600;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
 
-    .list-item::before {
-      content: "•";
-      color: #2c6289;
-      font-weight: 700;
-      font-size: 1.4rem;
-      line-height: 1;
-    }
+        .badge {
+            background: #eaf1fa;
+            color: #152e44;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            display: inline-block;
+            margin-right: 0.4rem;
+            border: 1px solid #c9d8eb;
+            text-transform: uppercase;
+        }
 
-    .badge {
-      background: #e6f0f9;
-      color: #1a405b;
-      padding: 0.25rem 1.1rem;
-      border-radius: 2rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      display: inline-block;
-      margin-right: 0.5rem;
-      border: 1px solid #c3d7ec;
-      text-transform: uppercase;
-    }
+        .highlight {
+            color: #0d314b;
+            font-weight: 700;
+            background: #e9f0f8;
+            padding: 0 0.2rem;
+        }
 
-    .highlight {
-      color: #0c4a6e;
-      font-weight: 700;
-      background: #e5f0f9;
-      padding: 0 0.3rem;
-    }
+        /* Mockup de interface tipo app */
+        .interface-mock-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1.8rem 0 1rem;
+        }
 
-    .mockup-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin: 2rem 0 1rem;
-    }
+        .app-window {
+            background: #ffffff;
+            border-radius: 16px;
+            width: 140px;
+            height: 240px;
+            border: 1px solid #dde4ef;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+            gap: 0.3rem;
+            background: #fafcff;
+        }
 
-    .phone-mock {
-      background: #ffffff;
-      border-radius: 2.2rem;
-      padding: 0.9rem;
-      width: 150px;
-      height: 270px;
-      border: 1.5px solid #d0dbe8;
-      box-shadow: 0 15px 25px rgba(0,0,0,0.04), 0 0 0 4px #f0f4fa;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: #1e293b;
-      text-align: center;
-      font-size: 0.75rem;
-      background: #ffffff;
-    }
+        .screen-area {
+            background: #f1f5f9;
+            width: 100%;
+            height: 80%;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #1e2f40;
+            border: 1px solid #dbe3ef;
+            gap: 0.3rem;
+            padding: 0.3rem;
+        }
 
-    .screen {
-      background: #f6f9fe;
-      width: 100%;
-      height: 85%;
-      border-radius: 1.2rem;
-      padding: 0.6rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-weight: 500;
-      gap: 0.3rem;
-      border: 1px solid #d9e4f0;
-      color: #0f293e;
-    }
+        .qr-block {
+            background: #1e293b;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
 
-    .qr-box {
-      background: #1e293b;
-      color: white;
-      padding: 0.3rem 0.6rem;
-      border-radius: 0.4rem;
-      font-weight: 600;
-    }
+        .tag {
+            background: #1e3b5a;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.6rem;
+        }
 
-    .map-placeholder {
-      background: #f2f6fc;
-      border-radius: 1rem;
-      padding: 1.2rem;
-      text-align: center;
-      font-weight: 500;
-      margin: 1.2rem 0;
-      border: 1px dashed #94afc9;
-      color: #235179;
-      background: #ecf2f9;
-      font-size: 0.9rem;
-    }
+        .map-placeholder {
+            background: #eef3f9;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+            margin: 1rem 0;
+            border: 1px dashed #a0b9d4;
+            color: #1f4462;
+            font-size: 0.85rem;
+        }
 
-    .flex-row {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
+        .flex-row {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
 
-    .quote {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      text-align: right;
-      margin-top: 2rem;
-      font-size: 1.2rem;
-      color: #34526b;
-      border-right: 3px solid #96b9d9;
-      padding-right: 1.5rem;
-      font-weight: 500;
-    }
+        .quote-block {
+            text-align: right;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            color: #2f4963;
+            border-right: 3px solid #8aa9c9;
+            padding-right: 1.5rem;
+            font-style: italic;
+        }
 
-    .price-tag {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #0b3551;
-      letter-spacing: -0.3px;
-    }
+        .price-tag {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #0a2a44;
+        }
 
-    .icon-emphasis {
-      font-size: 2rem;
-      opacity: 0.7;
-    }
+        hr {
+            border: 0;
+            border-top: 1px solid #dce3ee;
+            margin: 1.5rem 0 1rem;
+        }
 
-    @media (max-width: 700px) {
-      .grid-2col {
-        grid-template-columns: 1fr;
-      }
-      .slide {
-        padding: 2rem 1.5rem;
-      }
-      h1 {
-        font-size: 2.5rem;
-      }
-    }
-
-  hr {
-    border: 0;
-    border-top: 1px solid #dce3ec;
-    margin: 1.5rem 0 1rem;
-    }
   .button-16 {
     background-color: #f8f9fa;
     border: 1px solid #eaeaea;
@@ -309,180 +293,187 @@
     outline: none;
   }
     
-  </style>
+
+
+        @media (max-width: 700px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+            .slide {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="presentation">
 
-  <div class="presentation">
-
-    <!-- SLIDE 1 – CAPA -->
-    <div class="slide">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-        <div>
-          <span class="badge">Segurança do Trabalho • Inovação</span>
-          <h1>SafeGuard<br>Solutions</h1>
-          <p class="slogan">Gestão que previne, tecnologia que protege.</p>
+        <!-- SLIDE 1 – CAPA -->
+        <div class="slide">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                <div>
+                    <span class="badge">Seguranca do Trabalho • Inovacao</span>
+                    <h1>SafeGuard Solutions</h1>
+                    <p class="slogan">Gestao que previne, tecnologia que protege.</p>
+                </div>
+                <div style="font-size: 2.2rem; font-weight: 300; color: #2f577c;">SG</div>
+            </div>
+            <div style="margin-top: 2rem; font-size: 0.95rem; color: #4b627c; display: flex; gap: 2.5rem; flex-wrap: wrap;">
+                <span>Projeto: Viva sua profissao TST</span>
+                <span>Empreendedorismo aplicado a SST</span>
+            </div>
         </div>
-        <div style="font-size: 2.8rem; color: #2e577a;">🛡️</div>
-      </div>
-      <div style="margin-top: 1.8rem; font-size: 1rem; color: #486a82; display: flex; gap: 2rem; flex-wrap: wrap;">
-        <span>Projeto: Viva sua profissão TST</span>
-        <span>Empreendedorismo aplicado à SST</span>
-      </div>
+
+        <!-- SLIDE 2 – OPORTUNIDADE -->
+        <div class="slide">
+            <h2>Identificacao da oportunidade</h2>
+            <div class="grid-2col">
+                <div class="card-panel">
+                    <h3 style="margin-top:0; color:#b13b3b;">Problema central</h3>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Processos de SST fragmentados e manuais</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Prazos de treinamentos e EPIs vencidos</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Falta de rastreabilidade nas inspecoes</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Comunicacao de riscos ineficiente</div>
+                </div>
+                <div class="card-panel">
+                    <h3 style="margin-top:0; color:#1e4b6b;">Necessidade do mercado</h3>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Centralizar dados em plataforma unica</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Automatizar alertas e conformidade</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Transformar dados em decisao preventiva</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Reduzir passivos e fortalecer cultura de seguranca</div>
+                </div>
+            </div>
+            <p style="margin-top:1.5rem; font-style: italic; color: #3a5775;">"Tirar o TST da posicao reativa e torna-lo estrategico na organizacao."</p>
+        </div>
+
+        <!-- SLIDE 3 – PLATAFORMA -->
+        <div class="slide">
+            <h2>Plataforma SafeGuard 360</h2>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                <div style="flex: 1.2;">
+                    <div class="card-panel" style="margin-bottom: 1rem;">
+                        <span class="badge">Modulo EPIs</span> Controle por QR Code, assinatura digital e alerta de validade.
+                    </div>
+                    <div class="card-panel" style="margin-bottom: 1rem;">
+                        <span class="badge">Modulo Treinamentos</span> Avisos automaticos por e-mail e WhatsApp antes do vencimento.
+                    </div>
+                    <div class="card-panel">
+                        <span class="badge">Modulo Inspecao</span> Checklists inteligentes com foto, GPS e plano de acao.
+                    </div>
+                </div>
+                <div style="flex: 0.9; text-align: center; background: #f4f8fd; border-radius: 18px; padding: 1.8rem; border: 1px solid #d4e0f0;">
+                    <p style="font-weight: 600; font-size: 1.1rem;">Integracao total</p>
+                    <p style="font-size: 0.9rem; color: #3f5e79;">Aplicativo mobile + plataforma web</p>
+                    <div style="margin-top: 0.6rem; background:#e3ebf5; height:6px; width:80%; border-radius:4px; margin-left:auto; margin-right:auto;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4 – DEMONSTRACAO INTERFACE -->
+        <div class="slide">
+            <h2>Experiencia do aplicativo</h2>
+            <div class="interface-mock-row">
+                <div class="app-window">
+                    <div class="screen-area">
+                        <span style="font-weight:600;">Alerta</span>
+                        <p style="font-size:0.65rem;">NR-12 • Joao Silva</p>
+                        <span style="background:#fef9c3; padding:2px 6px; font-size:0.6rem;">Vence em 15 dias</span>
+                    </div>
+                    <span style="font-size:0.6rem; color:#4a627a;">Notificacao</span>
+                </div>
+                <div class="app-window">
+                    <div class="screen-area">
+                        <div class="qr-block">EPI</div>
+                        <p style="font-size:0.65rem;">Capacete entregue</p>
+                        <p style="font-size:0.6rem;">08/05/2026</p>
+                        <span class="tag">Assinar</span>
+                    </div>
+                    <span style="font-size:0.6rem; color:#4a627a;">Registro digital</span>
+                </div>
+                <div class="app-window">
+                    <div class="screen-area">
+                        <span style="font-size:1.2rem;">&#9633;</span>
+                        <p style="font-size:0.6rem;">Protecao irregular</p>
+                        <p style="font-size:0.55rem;">Setor C • hoje</p>
+                        <span class="tag" style="background:#b45342;">Plano de acao</span>
+                    </div>
+                    <span style="font-size:0.6rem; color:#4a627a;">Inspecao</span>
+                </div>
+            </div>
+            <p style="text-align: center; color: #3f5568; margin-top: 1rem;">Registro de nao conformidades com evidencias e responsaveis designados.</p>
+        </div>
+
+        <!-- SLIDE 5 – DIFERENCIAL E PUBLICO -->
+        <div class="slide">
+            <h2>Diferencial competitivo e publico</h2>
+            <div class="grid-2col">
+                <div>
+                    <h3 style="color:#1f4662;">Por que a SafeGuard?</h3>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Integracao que bloqueia EPI se treinamento estiver vencido</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Mapa de calor de riscos baseado em dados reais</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Suporte consultivo e atualizacao normativa</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Custo-beneficio: substitui multiplos sistemas</div>
+                    <div class="map-placeholder">
+                        Mapa de calor de desvios • inteligencia preditiva
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color:#1f4662;">Publico-alvo</h3>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Industrias de transformacao e metalmecanica</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Construcao civil e incorporadoras</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Operadores logisticos e transportes</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Pequenas e medias empresas (eSocial)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6 – FINANCEIRO E DIVULGACAO -->
+        <div class="slide">
+            <h2>Plano financeiro e estrategia de divulgacao</h2>
+            <div class="flex-row">
+                <div class="card-panel" style="flex:1;">
+                    <h3 style="margin-top:0;">Investimento inicial</h3>
+                    <p><span class="price-tag">R$ 42.500</span></p>
+                    <p style="color:#445f79;">Desenvolvimento, nuvem, legalizacao e marketing.</p>
+                    <p style="margin-top:0.8rem;"><span class="badge">Planos</span> Essencial R$350/mes • Pro R$950/mes</p>
+                </div>
+                <div class="card-panel" style="flex:1;">
+                    <h3 style="margin-top:0;">Canais de divulgacao</h3>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> LinkedIn e Instagram com conteudo tecnico</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Visitas a polos industriais e demonstracoes</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Parcerias com associacoes e sindicatos</div>
+                    <div class="list-item"><span class="list-marker">&#9642;</span> Webinars educativos e marketing digital</div>
+                </div>
+            </div>
+            <p style="margin-top:1.2rem;"><span class="highlight">Modelo de receita:</span> Assinatura SaaS recorrente + taxa de implementacao personalizada.</p>
+        </div>
+
+        <!-- SLIDE 7 – EQUIPE E FUTURO -->
+        <div class="slide">
+            <h2>Equipe e visao de futuro</h2>
+            <div style="display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
+                <div style="flex:1;">
+                    <p><span class="badge">Fundadores</span> Especialistas em Seguranca do Trabalho e tecnologia</p>
+                    <p style="font-size:1.05rem; margin:1rem 0; color:#27455e;">Compromisso com a prevencao inteligente e a saude ocupacional.</p>
+                    <p>"Ser referencia em plataforma preditiva de SST no Brasil."</p>
+                </div>
+                <div style="font-size:2.2rem; color:#2f5679; font-weight:300;">SG</div>
+            </div>
+            <hr>
+            <div class="quote-block">
+                "O talento vence jogos, mas o trabalho em equipe e a inteligencia vencem campeonatos."<br>
+                <strong>— Michael Jordan</strong>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: right; color: #5d7d9a; font-size:0.85rem;">
+                SafeGuard Solutions • consultoria em seguranca do trabalho
+            </div>
+        </div>
+
     </div>
-
-    <!-- SLIDE 2 – OPORTUNIDADE DE NEGÓCIO -->
-    <div class="slide">
-      <h2>Identificação da oportunidade</h2>
-      <div class="grid-2col">
-        <div class="card-inner">
-          <h3 style="margin-top:0; color:#a13e3e;">Problema central</h3>
-          <div class="list-item">Processos de SST fragmentados e manuais</div>
-          <div class="list-item">Prazos de treinamentos e EPIs vencidos</div>
-          <div class="list-item">Falta de rastreabilidade nas inspeções</div>
-          <div class="list-item">Comunicação de riscos ineficiente</div>
-        </div>
-        <div class="card-inner">
-          <h3 style="margin-top:0; color:#2c6282;">Necessidade do mercado</h3>
-          <div class="list-item">Centralizar dados em plataforma única</div>
-          <div class="list-item">Automatizar alertas e conformidade</div>
-          <div class="list-item">Transformar dados em decisão preventiva</div>
-          <div class="list-item">Reduzir passivos e fortalecer cultura de segurança</div>
-        </div>
-      </div>
-      <p style="margin-top:1.5rem; font-style: italic; color: #385d7a;">“Tirar o TST da posição reativa e torná-lo estratégico na organização.”</p>
-    </div>
-
-    <!-- SLIDE 3 – PRODUTO / SERVIÇO -->
-    <div class="slide">
-      <h2>Plataforma SafeGuard 360</h2>
-      <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
-        <div style="flex: 1.2;">
-          <div class="card-inner" style="margin-bottom: 1rem;">
-            <span class="badge">Módulo EPIs</span> Controle por QR Code, assinatura digital e alerta de validade.
-          </div>
-          <div class="card-inner" style="margin-bottom: 1rem;">
-            <span class="badge">Módulo Treinamentos</span> Avisos automáticos por e-mail e WhatsApp antes do vencimento.
-          </div>
-          <div class="card-inner">
-            <span class="badge">Módulo Inspeção</span> Checklists inteligentes com foto, GPS e plano de ação.
-          </div>
-        </div>
-        <div style="flex: 0.9; text-align: center; background: #f4f9ff; border-radius: 2rem; padding: 1.8rem; border: 1px solid #d4e2f2;">
-          <span style="font-size: 2.4rem;">📊</span>
-          <p style="font-weight: 600; margin-top: 0.4rem;">Integração total</p>
-          <p style="font-size: 0.9rem; color: #3f5e79;">Aplicativo mobile + plataforma web</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 4 – DEMONSTRAÇÃO (MAQUETE CONCEITUAL) -->
-    <div class="slide">
-      <h2>Experiência do aplicativo</h2>
-      <div class="mockup-container">
-        <div class="phone-mock">
-          <div class="screen">
-            <span style="font-weight:600;">⚠️ Alerta</span>
-            <p style="font-size:0.7rem;">NR-12 · João Silva</p>
-            <p style="font-size:0.7rem; background:#fef9c3; padding:2px 6px;">Vence em 15 dias</p>
-          </div>
-          <span style="margin-top:5px; color:#4a627a;">Notificação</span>
-        </div>
-        <div class="phone-mock">
-          <div class="screen">
-            <div class="qr-box">EPI</div>
-            <p style="font-size:0.7rem;">Capacete entregue</p>
-            <p style="font-size:0.65rem;">08/05/2026</p>
-            <span style="background:#1e4b6e; color:white; padding:2px 10px; border-radius:12px; font-size:0.65rem;">Assinar</span>
-          </div>
-          <span style="margin-top:5px; color:#4a627a;">Registro digital</span>
-        </div>
-        <div class="phone-mock">
-          <div class="screen">
-            <span>📸</span>
-            <p style="font-size:0.65rem;">Proteção irregular</p>
-            <p style="font-size:0.6rem;">Setor C · hoje</p>
-            <span style="background:#b45342; color:white; padding:2px 8px; border-radius:10px;">Plano de ação</span>
-          </div>
-          <span style="margin-top:5px; color:#4a627a;">Inspeção</span>
-        </div>
-      </div>
-      <p style="text-align: center; color: #3f5568;">Registro completo de não conformidades com evidências e responsáveis.</p>
-    </div>
-
-    <!-- SLIDE 5 – DIFERENCIAL E PÚBLICO -->
-    <div class="slide">
-      <h2>Diferencial competitivo e público</h2>
-      <div class="grid-2col">
-        <div>
-          <h3 style="color:#1f4662;">Por que a SafeGuard?</h3>
-          <div class="list-item">Integração que bloqueia EPI se treinamento estiver vencido</div>
-          <div class="list-item">Mapa de calor de riscos baseado em dados reais</div>
-          <div class="list-item">Suporte consultivo e atualização normativa</div>
-          <div class="list-item">Custo-benefício: substitui múltiplos sistemas</div>
-          <div class="map-placeholder">
-            🗺️ Mapa de calor de desvios · inteligência preditiva
-          </div>
-        </div>
-        <div>
-          <h3 style="color:#1f4662;">Público-alvo</h3>
-          <div class="list-item">Indústrias de transformação e metalmecânica</div>
-          <div class="list-item">Construção civil e incorporadoras</div>
-          <div class="list-item">Operadores logísticos e transportes</div>
-          <div class="list-item">Pequenas e médias empresas (eSocial)</div>
-          <div style="margin-top:1.2rem; background:#f5f9ff; border-radius:1rem; padding:1rem; border:1px solid #dae4f0;">
-            <span class="badge">Alcance</span> Empresas que buscam excelência em SST.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 6 – PLANO FINANCEIRO E DIVULGAÇÃO -->
-    <div class="slide">
-      <h2>Plano financeiro e estratégia de divulgação</h2>
-      <div class="flex-row">
-        <div class="card-inner" style="flex:1;">
-          <h3 style="margin-top:0;">Investimento inicial</h3>
-          <p><span class="price-tag">R$ 42.500</span></p>
-          <p style="color:#445f79;">Desenvolvimento, nuvem, legalização e marketing.</p>
-          <p style="margin-top:0.8rem;"><span class="badge">Planos</span> Essencial R$350/mês · Pro R$950/mês</p>
-        </div>
-        <div class="card-inner" style="flex:1;">
-          <h3 style="margin-top:0;">Canais de divulgação</h3>
-          <div class="list-item">LinkedIn e Instagram com conteúdo técnico</div>
-          <div class="list-item">Visitas a polos industriais e demonstrações</div>
-          <div class="list-item">Parcerias com associações e sindicatos</div>
-          <div class="list-item">Webinars educativos e marketing digital</div>
-        </div>
-      </div>
-      <p style="margin-top:1.2rem;"><span class="highlight">Modelo de receita:</span> Assinatura SaaS recorrente + taxa de implementação personalizada.</p>
-    </div>
-
-    <!-- SLIDE 7 – EQUIPE E ENCERRAMENTO -->
-    <div class="slide">
-      <h2>Equipe e visão de futuro</h2>
-      <div style="display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
-        <div style="flex:1;">
-          <p><span class="badge">Fundadores</span> Juan Vazquez e Especialistas em Segurança do Trabalho</p>
-          <p style="font-size:1.05rem; margin:1rem 0; color:#27455e;">Compromisso com a prevenção inteligente e a saúde ocupacional.</p>
-          <p>“Ser referência em plataforma preditiva de SST no Brasil.”</p>
-        </div>
-        <div style="font-size:2.8rem; color:#2f5679;">⚙️🔒</div>
-      </div>
-      <hr>
-      <div class="quote">
-        "O talento vence jogos, mas o trabalho em equipe e a inteligência vencem campeonatos."<br>
-        <strong>— Michael Jordan</strong>
-      </div>
-      <div style="margin-top: 1.5rem; text-align: right; color: #5d7d9a; font-size:0.9rem;">
-        SafeGuard Solutions · consultoria em segurança do trabalho
-      </div>
-    </div>
-
-  </div>
-
 </br></br>
 
   <a href="app.html" class="button-16" role="button" >App model</a>
+
 </body>
 </html>
+```

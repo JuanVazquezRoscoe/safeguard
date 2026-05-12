@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SafeGuard Solutions | Apresentação completa TST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .presentation-container {
+            width: 1400px;
+            max-width: 92vw;
+            height: 88vh;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-bar {
+            background: #0a2b3e;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .logo-sg {
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+            background: #f0b429;
+            padding: 0 12px;
+            border-radius: 14px;
+            color: #0a2b3e;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            opacity: 0.85;
+        }
+
+        .slide-counter {
+            background: #1e4a6b;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: 1px solid #ffffffb3;
+            color: white;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: #f0b429;
+            border-color: #f0b429;
+            color: #0a2b3e;
+            transform: scale(1.02);
+        }
+
+        .slides-area {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            background: #fefefe;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 2rem 2.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s;
+            overflow-y: auto;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* SOLUÇÃO DEFINITIVA: conteúdo centralizado verticalmente */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Quando o conteúdo já é grande, o justify-content center ainda funciona bem */
+        .slide-content-top {
+            justify-content: flex-start;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 10;
+        }
+
+        .slide::-webkit-scrollbar {
+            width: 5px;
+        }
+        .slide::-webkit-scrollbar-track {
+            background: #e9ecef;
+        }
+        .slide::-webkit-scrollbar-thumb {
+            background: #f0b429;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0a2b3e, #1f6e94);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            border-left: 6px solid #f0b429;
+            padding-left: 1rem;
+            margin: 0 0 0.8rem 0;
+            color: #0a2b3e;
+        }
+
+        h3 {
+            font-weight: 700;
+            color: #1e4a6b;
+            margin: 0.5rem 0 0.3rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .card {
+            background: #f8fafc;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            flex: 1 1 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2edf2;
+            transition: all 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -12px rgba(0,0,0,0.1);
+            border-color: #f0b42950;
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: #f0b429;
+            margin-bottom: 0.6rem;
+        }
+
+        .badge {
+            background: #0a2b3e;
+            color: white;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f0b429;
+            line-height: 1;
+        }
+
+        .mock-app {
+            background: #f1f5f9;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            margin: 0.5rem 0;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .mock-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+            padding: 0.8rem;
+            width: 210px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .mock-card:hover { transform: scale(1.02); background:#fff7e8;}
+
+        .pricing {
+            background: #f1f5f9;
+            border-radius: 1rem;
+            padding: 0.8rem 1.2rem;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        .timeline-step {
+            flex: 1;
+            background: #eef2ff;
+            border-radius: 1rem;
+            padding: 0.8rem;
+            text-align: center;
+        }
+
+        footer {
+            background: #0a2b3e08;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #2c4e6e;
+            border-top: 1px solid #e2e8f0;
+            flex-shrink: 0;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(15px);}
+            100%{ opacity: 1; transform: translateY(0);}
+        }
+
+        .active .animate-content {
+            animation: fadeUp 0.4s ease-out forwards;
+        }
+        
+        .chart-bar {
+            background: #0a2b3e20;
+            border-radius: 20px;
+            height: 10px;
+            margin: 6px 0;
+            overflow: hidden;
+        }
+        .fill-bar {
+            background: #f0b429;
+            width: 0%;
+            height: 100%;
+            border-radius: 20px;
+            animation: fillWidth 0.8s ease forwards;
+        }
+        @keyframes fillWidth {
+            to { width: var(--w); }
+        }
+        .img-placeholder {
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            min-height: 120px;
+            width: 100%;
+            margin: 8px 0;
+        }
+        .alert-badge {
+            background: #fef9e3;
+            border-left: 5px solid #f0b429;
+            padding: 0.8rem;
+            margin: 0.8rem 0;
+        }
+        ul, li {
+            line-height: 1.4;
+            margin-left: 1.2rem;
+        }
+        p {
+            margin: 0.3rem 0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+<div class="presentation-container">
+    <div class="nav-bar">
+        <div class="logo-area">
+            <span class="logo-sg">SafeGuard</span>
+            <span class="tag">SEGURANÇA DO TRABALHO • INOVAÇÃO</span>
+        </div>
+        <div class="slide-counter">
+            <span id="currentSlideIdx">1</span> / <span id="totalSlides">14</span>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevSlide"><i class="fas fa-chevron-left"></i> Anterior</button>
+            <button class="nav-btn" id="nextSlide">Próximo <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div class="slides-area" id="slidesArea">
+        <!-- SLIDE 1 - CAPA -->
+        <div class="slide active" data-index="0">
+            <div class="slide-content">
+                <div class="animate-content" style="text-align: center;">
+                    <span class="badge" style="margin: 0 auto 0.5rem auto;">SafeGuard Solutions</span>
+                    <h1 style="font-size: 3.2rem;">Gestão que previne,<br> tecnologia que protege.</h1>
+                    <div style="font-size: 1.2rem; font-weight: 500; color: #1f5e83;">Projeto: Viva sua profissão TST</div>
+                    <div style="margin: 0.5rem auto;"><i class="fas fa-chart-line"></i> Empreendedorismo aplicado a SST • Identificação da oportunidade</div>
+                    <div class="img-placeholder" style="margin: 1rem auto; width: 60%; max-width: 400px; background-image: url('https://picsum.photos/id/26/500/250'); height: 150px;"></div>
+                    <p><i class="fas fa-hard-hat"></i> +30% de redução de acidentes com gestão preditiva</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2 - Diagnóstico -->
+        <div class="slide" data-index="1">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h1>Diagnóstico: A realidade da SST</h1>
+                    <div class="grid-cards">
+                        <div class="card"><i class="fas fa-chart-line"></i><div class="stat-number">67%</div><p>processos manuais de EPI</p><div class="chart-bar"><div class="fill-bar" style="--w:67%"></div></div></div>
+                        <div class="card"><i class="fas fa-clock"></i><div class="stat-number">3x</div><p>mais multas por treinamentos vencidos</p></div>
+                        <div class="card"><i class="fas fa-comment-slash"></i><div class="stat-number">48%</div><p>comunicação de riscos ineficiente</p></div>
+                    </div>
+                    <h3>Problema central</h3>
+                    <ul><li>Processos fragmentados e manuais → atrasos e perda de dados.</li><li>Falta de rastreabilidade nas inspeções → passivos trabalhistas.</li></ul>
+                    <div class="alert-badge"><i class="fas fa-quote-left"></i> "Tirar o TST da posição reativa e torná-lo estratégico."</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3 - Oportunidade -->
+        <div class="slide" data-index="2">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Oportunidade de Mercado</h2>
+                    <p>Mercado de SST cresce 12% ao ano, digitalização avança apenas 18% nas médias empresas.</p>
+                    <div class="grid-cards">
+                        <div class="card"><i class="fas fa-database"></i><h3>Centralização</h3><p>Dados de EPI, treinamentos em um só lugar.</p></div>
+                        <div class="card"><i class="fas fa-bell"></i><h3>Automação</h3><p>Alertas em tempo real por e-mail e WhatsApp.</p></div>
+                        <div class="card"><i class="fas fa-chart-simple"></i><h3>Decisão baseada em dados</h3><p>Dashboards preditivos e mapa de calor.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4 - Plataforma -->
+        <div class="slide" data-index="3">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h1>Plataforma SafeGuard 360</h1>
+                    <div class="grid-cards">
+                        <div class="card"><i class="fas fa-qrcode"></i><h3>EPIS inteligentes</h3><p>QR Code, assinatura digital, bloqueio de acesso.</p></div>
+                        <div class="card"><i class="fas fa-chalkboard-user"></i><h3>Treinamentos</h3><p>Alertas antes do vencimento.</p></div>
+                        <div class="card"><i class="fas fa-clipboard-list"></i><h3>Inspeção</h3><p>Checklists com foto e GPS.</p></div>
+                    </div>
+                    <div><span class="badge">Integração total</span> App mobile + Web + API com RH e eSocial.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5 - App -->
+        <div class="slide" data-index="4">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Experiência do aplicativo</h2>
+                    <div class="mock-app">
+                        <div class="mock-card"><i class="fas fa-exclamation-triangle" style="color:#f0b429;"></i><div><strong>Alerta NR-12</strong><br>João Silva • Vence em 15 dias</div></div>
+                        <div class="mock-card"><i class="fas fa-helmet-safety"></i><div><strong>EPI: Capacete</strong><br>Entregue 08/05/2026</div></div>
+                        <div class="mock-card"><i class="fas fa-clipboard"></i><div><strong>Inspeção</strong><br>Proteção irregular - Setor C</div></div>
+                    </div>
+                    <p>Registro de não conformidades com evidências fotográficas e assinatura digital.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6 - Diferenciais -->
+        <div class="slide" data-index="5">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Diferenciais competitivos</h2>
+                    <div class="grid-cards">
+                        <div class="card"><i class="fas fa-link"></i><h3>Integração bloqueante</h3><p>EPI bloqueado se treinamento vencido.</p></div>
+                        <div class="card"><i class="fas fa-fire"></i><h3>Mapa de calor preditivo</h3><p>Antecipa áreas de risco.</p></div>
+                        <div class="card"><i class="fas fa-chalkboard"></i><h3>Suporte consultivo</h3><p>Atualização normativa inclusa.</p></div>
+                    </div>
+                    <div class="pricing">Economia média de 42% em softwares.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7 - Mapa de calor -->
+        <div class="slide" data-index="6">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Mapa de calor & IA preditiva</h2>
+                    <div class="img-placeholder" style="background-image: url('https://picsum.photos/id/104/800/200'); height: 130px;"></div>
+                    <p>Machine learning identifica padrões de não conformidade. Redução de 32% em incidentes.</p>
+                    <div class="chart-bar"><div class="fill-bar" style="--w:84%"></div><small>84% de eficácia na detecção antecipada</small></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8 - Público-alvo (AGORA SEM BURACO - conteúdo centralizado) -->
+        <div class="slide" data-index="7">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Público-alvo & Personas</h2>
+                    <div class="grid-cards">
+                        <div class="card"><i class="fas fa-industry"></i><h3>Indústrias transformação</h3><p>Metal-mecânica, plástico, alimentícia.</p></div>
+                        <div class="card"><i class="fas fa-hard-hat"></i><h3>Construção Civil</h3><p>Grande volume de trabalhadores e riscos dinâmicos.</p></div>
+                        <div class="card"><i class="fas fa-truck"></i><h3>Operadores logísticos</h3><p>Frota, movimentação de cargas, NR-11 e NR-12.</p></div>
+                        <div class="card"><i class="fas fa-chart-line"></i><h3>PMEs (eSocial)</h3><p>Simplificação do compliance e redução de multas.</p></div>
+                    </div>
+                    <div class="alert-badge"><i class="fas fa-chart-pie"></i> TAM: 15.000 empresas no Brasil • CAGR 14%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9 - Financeiro -->
+        <div class="slide" data-index="8">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Plano financeiro e ROI</h2>
+                    <div class="pricing"><strong>Investimento inicial</strong> R$ 42.500</div>
+                    <div><strong>Planos:</strong> Essencial R$350/mês • Pro R$950/mês</div>
+                    <ul><li>Break-even em 9 meses com 25 contratos.</li><li>Redução média de custos: R$28k/ano por cliente.</li></ul>
+                    <div class="chart-bar"><div class="fill-bar" style="--w:74%"></div><span>NPS esperado: 74%</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10 - Canais de divulgação (CORRIGIDO - conteúdo bem distribuído) -->
+        <div class="slide" data-index="9">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Canais de divulgação multicanal</h2>
+                    <div class="timeline">
+                        <div class="timeline-step"><i class="fab fa-linkedin fa-2x"></i><br>LinkedIn e Instagram<br><small>conteúdo técnico semanal</small></div>
+                        <div class="timeline-step"><i class="fas fa-handshake"></i><br>Visitas a polos industriais<br><small>demonstrações gratuitas</small></div>
+                        <div class="timeline-step"><i class="fas fa-building"></i><br>Parcerias com sindicatos<br><small>SESI, SENAI</small></div>
+                        <div class="timeline-step"><i class="fas fa-chalkboard"></i><br>Webinar educativos<br><small>especialistas em SST</small></div>
+                    </div>
+                    <div class="alert-badge" style="margin-top: 0.5rem;">
+                        <i class="fas fa-gift"></i> <strong>Modelo freemium:</strong> versão gratuita para até 30 funcionários
+                    </div>
+                    <p><i class="fas fa-bullseye"></i> <strong>Meta:</strong> 500 leads qualificados no primeiro trimestre</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11 - Equipe -->
+        <div class="slide" data-index="10">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Equipe fundadora</h2>
+                    <div class="grid-cards">
+                        <div class="card"><i class="fas fa-user-tie"></i><h3>Dra. Camila Mendes</h3><p>12 anos em indústrias, ex-coordenadora TST.</p></div>
+                        <div class="card"><i class="fas fa-laptop-code"></i><h3>André Lemos</h3><p>Tech Lead, SaaS e IoT, ex-CTO.</p></div>
+                        <div class="card"><i class="fas fa-chart-line"></i><h3>Conselho consultivo</h3><p>Direito Trabalhista e gestão de riscos.</p></div>
+                    </div>
+                    <div class="badge">+30 anos de experiência combinada em SST e tecnologia</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12 - Cases -->
+        <div class="slide" data-index="11">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Cases de sucesso</h2>
+                    <div class="grid-cards">
+                        <div class="card"><strong>Metalúrgica Delta</strong><br>↓57% atrasos em treinamentos</div>
+                        <div class="card"><strong>Construtora Alfa</strong><br>100% rastreabilidade de EPI</div>
+                        <div class="card"><strong>Logística Rápida</strong><br>↓41% acidentes com mapa de calor</div>
+                    </div>
+                    <div class="img-placeholder" style="background-image: url('https://picsum.photos/id/0/700/120'); height: 100px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13 - Roadmap -->
+        <div class="slide" data-index="12">
+            <div class="slide-content">
+                <div class="animate-content">
+                    <h2>Roadmap 2025-2026</h2>
+                    <div class="timeline">
+                        <div class="timeline-step"><i class="fas fa-microchip"></i><br>Q3 2025<br>IoT com sensores</div>
+                        <div class="timeline-step"><i class="fas fa-robot"></i><br>Q1 2026<br>Assistente IA para laudos</div>
+                        <div class="timeline-step"><i class="fas fa-globe"></i><br>Q4 2026<br>Expansão para Argentina e Chile</div>
+                    </div>
+                    <p>Impactar 1 milhão de trabalhadores até 2028.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14 - Encerramento -->
+        <div class="slide" data-index="13">
+            <div class="slide-content">
+                <div class="animate-content" style="text-align: center;">
+                    <i class="fas fa-shield-alt" style="font-size: 3.5rem; color: #f0b429;"></i>
+                    <h1 style="font-size: 2.5rem;">SafeGuard Solutions</h1>
+                    <p style="font-size: 1.2rem;">Gestão que previne, tecnologia que protege.</p>
+                    <div class="pricing" style="background: #0a2b3e; color: white; margin: 0.8rem auto;">comercial@safeguardsst.com | (11) 99999-1234</div>
+                    <p><i class="fas fa-calendar-check"></i> Agende uma demonstração gratuita</p>
+                    <div class="img-placeholder" style="background-image: url('https://picsum.photos/id/169/400/120'); height: 100px; margin-top: 0.5rem;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span>SafeGuard Solutions • SEGURANÇA DO TRABALHO • INOVAÇÃO</span>
+        <span>Empreendedorismo aplicado a SST</span>
+    </footer>
+</div>
+
+<script>
+    (function(){
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        const currentSpan = document.getElementById('currentSlideIdx');
+        const totalSlidesSpan = document.getElementById('totalSlides');
+        let current = 0;
+        const total = slides.length;
+        totalSlidesSpan.innerText = total;
+
+        function updateSlides() {
+            slides.forEach((slide, idx) => {
+                if(idx === current) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            currentSpan.innerText = current+1;
+            const activeSlide = slides[current];
+            const animated = activeSlide.querySelectorAll('.animate-content');
+            animated.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight;
+                el.style.animation = 'fadeUp 0.4s ease forwards';
+            });
+            const bars = activeSlide.querySelectorAll('.fill-bar');
+            bars.forEach(bar => {
+                const w = bar.style.getPropertyValue('--w');
+                if(w) bar.style.width = '0%';
+                setTimeout(() => { if(w) bar.style.width = w; }, 50);
+            });
+        }
+
+        function nextSlide() { if(current < total-1){ current++; updateSlides(); } }
+        function prevSlide() { if(current > 0){ current--; updateSlides(); } }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        window.addEventListener('keydown', (e) => {
+            if(e.key === 'ArrowRight') { nextSlide(); e.preventDefault();}
+            else if(e.key === 'ArrowLeft') { prevSlide(); e.preventDefault();}
+        });
+        updateSlides();
+    })();
+</script>
+</body>
+</html>
